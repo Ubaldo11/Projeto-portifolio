@@ -65,8 +65,10 @@ body * {
   transform: translateY(-50%);
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+#switch button :hover {
+  outline: 8px solid var(--hightlight-color);
 }
 #switch span {
   display: block;
@@ -121,10 +123,23 @@ ul li a:hover {
   border-radius: 50%;
 }
 @media (min-width: 700px) {
-  :root {
-    --bg-url: url(./assests/bg-mobile.jpg);
-  }
   .light {
-    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+  @keyframes slide-in {
+    from {
+      left: 0;
+    }
+    to {
+      left: 50%;
+    }
+  }
+  @keyframe slide-back {
+    from {
+      left: 50%;
+    }
+    to {
+      left: 0;
+    }
   }
 }
